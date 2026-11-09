@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="uz"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SMART STREET | Smart City Management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/style.css"></head><body>
+<div class="layout">
+<aside class="sidebar" id="sidebar">
+ <div class="brand"><b>SMART STREET</b><small>Smart City Management</small></div>
+ <nav>
+ <label>ASOSIY MENYU</label>
+ <button class="active" data-page="dashboard">▦　Dashboard</button><button data-page="map">⌖　Xarita</button><button data-page="lights">☼　Ko‘cha chiroqlari</button><button data-page="screens">▣　Reklama ekranlari</button>
+ <label>REKLAMA BOSHQARUVI</label><button data-page="offers">✉　Takliflar <i id="pendingBadge">3</i></button><button data-page="campaigns">▤　Kampaniyalar</button><button data-page="clients">♙　Mijozlar</button>
+ <label>TIZIM</label><button data-page="reports">▥　Hisobotlar</button><button data-page="settings">⚙　Sozlamalar</button></nav>
+ <div class="sidefoot">● Tizim faol<small>SMART CITY v2.0 · IoT prototipi</small></div>
+</aside>
+<main>
+<header><div class="headleft"><button id="menu" class="hamb">☰</button><div><small>SMART CITY MANAGEMENT</small><h1 id="heading">Dashboard</h1></div></div><div class="admin"><span>● Tizim ishlamoqda</span><b>AD</b> Administrator</div></header>
+<div class="content">
+<section id="dashboard" class="page active">
+ <div class="intro"><div><h2>Xush kelibsiz!</h2><p>Shahar infratuzilmasining bugungi holati.</p></div><button class="primary" data-go="map">⌖ Xaritani ko‘rish</button></div>
+ <div class="stats">
+ <article><span>Faol chiroqlar</span><strong id="statOn">102</strong><small>Jami <span id="statTotal">120</span> ta qurilmadan</small></article>
+ <article><span>O‘chiq chiroqlar</span><strong id="statOff">14</strong><small>Qo‘lda o‘chirilgan</small></article>
+ <article><span>Nosoz qurilmalar</span><strong id="statFault">4</strong><small>Tekshiruv talab etiladi</small></article>
+ <article><span>Reklama ekranlari</span><strong id="scrCount">12</strong><small id="scrSub">11 faol · 1 nosoz</small></article></div>
+ <div class="columns"><article class="panel"><h3>Chiroqlar holati</h3><p>Jami <span id="totalTxt">120</span> ta yoritgich</p>
+ <div class="meter">Yoniq <b id="onPct">85%</b><div><i id="onBar" style="width:85%"></i></div></div>
+ <div class="meter">O‘chiq <b id="offPct">12%</b><div><i id="offBar" class="amber" style="width:12%"></i></div></div>
+ <div class="meter">Nosoz <b id="faultPct">3%</b><div><i id="faultBar" class="red" style="width:3%"></i></div></div></article>
+ <article class="panel"><h3>Hududlar bo‘yicha</h3><p>Katta yo‘l <b class="right" id="areaBig">100</b></p><hr><p>Mahalla <b class="right" id="areaSmall">20</b></p><hr><p>Reklama ekranlari <b class="right">12</b></p></article></div>
+ <article class="panel"><h3>So‘nggi faoliyat</h3><table><tr><th>QURILMA</th><th>AMAL</th><th>HOLAT</th></tr><tr><td>CH-024 · Markaziy ko‘cha</td><td>Holat yangilandi</td><td>Yoniq</td></tr><tr><td>RE-012 · Savdo markazi</td><td>Texnik nosozlik</td><td>Nosoz</td></tr></table></article>
+</section>
+
+<section id="map" class="page">
+ <div class="intro"><div><h2>Infratuzilma xaritasi</h2><p>Xaritada jami <b id="mapTotal">120</b> ta chiroq va <b id="mapScr">12</b> ta ekran. Nuqtani bosing — tafsilotlar ochiladi.</p></div><span class="live">● Jonli prototip</span></div>
+ <div class="panel mapbar"><div class="legend"><span><b class="green">● Yoniq</b> <i class="cnt" id="lgOn">0</i></span><span><b class="yellow">● O‘chiq</b> <i class="cnt" id="lgOff">0</i></span><span><b class="redtxt">● Nosoz</b> <i class="cnt" id="lgFault">0</i></span><span><b style="color:#4b86c8">■ Reklama ekrani</b> <i class="cnt" id="lgScr">12</i></span></div><button id="labels" class="light">Ko‘cha nomlari</button></div>
+ <article class="panel mapcard big"><div class="maphead"><div class="maptitle"><div><em>◎</em><span><b>Hudud xaritasi</b><small>Chiroqlar va reklama ekranlari joylashuvi</small></span></div></div></div>
+ <div class="map" id="mapBox" data-layer="road">
+  <div class="mapvp" id="mapVp"><svg id="roadSvg" viewBox="0 0 1600 940" preserveAspectRatio="none" aria-label="Yo‘l xaritasi"></svg><svg id="satSvg" viewBox="0 0 1600 940" preserveAspectRatio="none" aria-label="Sun’iy yo‘ldosh ko‘rinishi"></svg><div class="pins" id="pins"></div></div>
+  <div class="maptoggle"><button data-layer="road" class="on">Xarita</button><button data-layer="sat">Sun’iy yo‘ldosh</button></div>
+  <div class="zoom"><button id="zIn" aria-label="Kattalashtirish">＋</button><button id="zOut" aria-label="Kichiklashtirish">－</button><button id="zReset" aria-label="Asl holat" style="font-size:16px">⌂</button></div>
+ </div><small class="mapfoot">G‘ildirak yoki ＋／－ bilan kattalashtiring, xaritani sudrab siljiting. Nuqtani bosing — tafsilotlar ochiladi.</small></article>
+ <article class="panel note"><b>ⓘ Izoh</b><p>Bu loyiha uchun maxsus chizilgan namunaviy hudud. Ikkala xaritadagi yo‘llar va qurilma nuqtalari bir xil koordinatalarga bog‘langan. Keyinchalik haqiqiy hudud rejasiga almashtiramiz.</p></article>
+</section>
+
+<section id="lights" class="page"><div class="intro"><div><h2>Ko‘cha chiroqlari</h2><p>Har bir yoritgichni alohida boshqarish.</p></div><button class="primary" id="addLight">＋ Chiroq qo‘shish</button></div>
+<div class="panel filters"><input id="search" placeholder="ID yoki ko‘cha nomi"><select id="status"><option value="all">Barcha holatlar</option><option value="on">Yoniq</option><option value="off">O‘chiq</option><option value="fault">Nosoz</option></select><select id="area"><option value="all">Barcha hududlar</option><option>Katta yo‘l</option><option>Mahalla</option></select></div>
+<div class="panel"><h3>Qurilmalar ro‘yxati <small id="lightCount"></small></h3><div class="scroll"><table><thead><tr><th>ID</th><th>Hudud</th><th>Joylashuv</th><th>Holat</th><th>Boshqaruv</th></tr></thead><tbody id="lightRows"></tbody></table></div></div></section>
+<section id="screens" class="page"><div class="intro"><div><h2>Reklama ekranlari</h2><p>Raqamli ekranlarning holati va boshqaruvi.</p></div><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="light" id="allOn">Hammasini yoqish</button><button class="light" id="allOff">Hammasini o‘chirish</button></div></div><div class="screenlist" id="screenList"></div></section>
+<section id="offers" class="page"><div class="intro"><div><h2>Reklama takliflari</h2><p>Mijozlarning narx va muddat takliflari.</p></div></div><div class="panel scroll"><table><thead><tr><th>MIJOZ</th><th>REKLAMA</th><th>MUDDAT</th><th>NARX</th><th>QAROR</th></tr></thead><tbody id="offerRows"></tbody></table></div></section>
+<section id="campaigns" class="page"><div class="intro"><div><h2>Kampaniyalar</h2><p>Tasdiqlangan reklama joylashtirishlar.</p></div></div><div class="panel scroll" id="campBody"></div></section>
+<section id="clients" class="page"><div class="intro"><div><h2>Mijozlar</h2><p>Reklama beruvchilar bazasi.</p></div></div><div class="panel"><table><tr><th>MIJOZ</th><th>BUYURTMALAR</th><th>HOLAT</th></tr><tr><td>Baraka Market</td><td>2</td><td>Faol</td></tr><tr><td>Navro‘z Savdo</td><td>1</td><td>Faol</td></tr></table></div></section>
+<section id="reports" class="page"><div class="intro"><div><h2>Hisobotlar</h2><p>Infratuzilma bo‘yicha umumiy ko‘rsatkichlar.</p></div><button class="light" onclick="window.print()">Chop etish</button></div><div class="panel">120 ta chiroq · 12 ta reklama ekrani · 100 ta katta yo‘l chirog‘i · 20 ta mahalla chirog‘i</div></section>
+<section id="settings" class="page"><div class="intro"><div><h2>Sozlamalar</h2><p>Loyiha va hudud parametrlari.</p></div></div><div class="panel">SMART STREET · Smart City Management · v2.0</div></section>
+</div><footer>SMART STREET v2.0 <span>O‘quv loyihasi · IoT prototipi</span></footer>
+</main></div><div id="pinCard" class="pincard" hidden></div><div id="toast"></div><script src="js/map.js"></script><script src="js/mapview.js"></script><script src="js/app.js"></script></body></html>
